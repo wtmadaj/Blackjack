@@ -7,7 +7,10 @@ let values = ['Ace', 'King', 'Queen', 'Jack',
       'Five', 'Four', 'Three', 'Two'];
 
 //Access areas of html file by id's (DOM variables)
-let textArea = document.getElementById('text-area');
+// let textArea = document.getElementById('text-area');
+let leftTextArea = document.getElementById('lefttextarea');
+let middleTextArea = document.getElementById('middletextarea');
+let rightTextArea = document.getElementById('righttextarea');
 let newGameButton = document.getElementById('new-game-button')
 let hitButton = document.getElementById('hit-button');
 let stayButton = document.getElementById('stay-button');
@@ -171,7 +174,7 @@ function checkForEndOfGame() {
 
 function showStatus() {
   if (!gameStarted) {
-    textArea.innerText = 'Welcome to Blackjack!';
+    middleTextArea.innerText = 'Welcome to Blackjack!';
     return;
   }
   
@@ -187,21 +190,22 @@ function showStatus() {
   
   updateScores();
   
-  textArea.innerText = 
+  leftTextArea.innerText = 
     'Dealer has:\n' +
     dealerCardString +
-    '(score: ' + dealerScore + ')\n\n' +
+    '(score: ' + dealerScore + ')\n\n';
     
+  middleTextArea.innerText =
     'Player has:\n' +
     playerCardString +
     '(score: ' + playerScore + ')\n\n';
     
     if (gameOver) {
       if (playerWon) {
-        textArea.innerText += 'YOU WIN!';
+        middleTextArea.innerText += 'YOU WIN!';
       }
       else {
-        textArea.innerText += 'DEALER WINS';
+        leftTextArea.innerText += 'DEALER WINS';
       }
 
     newGameButton.style.display = 'inline';
@@ -209,10 +213,10 @@ function showStatus() {
     stayButton.style.display = 'none';
     }
     
-  // //shows the shuffled deck
-  // for (var i = 0; i < deck.length; i++) {
-  // textArea.innerText += '\n' + getCardString(deck[i]);
-  // }
+  //shows the shuffled deck
+  for (var i = 0; i < deck.length; i++) {
+  rightTextArea.innerText += '\n' + getCardString(deck[i]);
+  }
 }
 
 
