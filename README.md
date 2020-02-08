@@ -2,13 +2,15 @@ README
 
 A simple blackjack game written in JavaScript.
 
-How To Play
+<b>How To Play</b>
 
 	1. Open index.html in browser
 	2. Play!
 
 
 
-Upcoming Improvements
-	-UI improvements
-	-3 column layout
+<b>Upcoming Improvements</b>
+	<ul>
+		<li>UI improvements</li>
+		<li>3 column layout</li>
+	</ul>
