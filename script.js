@@ -11,6 +11,8 @@ let values = ['Ace', 'King', 'Queen', 'Jack',
 let leftTextArea = document.getElementById('lefttextarea');
 let middleTextArea = document.getElementById('middletextarea');
 let rightTextArea = document.getElementById('righttextarea');
+let dealerWinsTextArea = document.getElementById('dealer-wins-text-area');
+let playerWinsTextArea = document.getElementById('player-wins-text-area');
 let newGameButton = document.getElementById('new-game-button')
 let hitButton = document.getElementById('hit-button');
 let stayButton = document.getElementById('stay-button');
@@ -24,9 +26,11 @@ let gameStarted = false,
     playerScore = 0,
     deck = [];
 
-//Hide the hit and stay buttons by default
+//Hide the hit and stay buttons by default, and hide text in win text area
 hitButton.style.display = 'none';
 stayButton.style.display = 'none';
+dealerWinsTextArea.value = "";
+playerWinsTextArea.value = "";
 showStatus();
 
 //On pressing new game button: display some text, hide new game button, show hit and stay buttons in-line
@@ -35,6 +39,9 @@ newGameButton.addEventListener('click', function() {
   gameOver = false;
   playerWon = false;
   
+  // TODO: add another shuffleDeck to display on screen to show cards are shuffled
+  // TODO: create version branches
+  // TODO: black bg with felt colored divs for player/dealer/card areas
   deck = createDeck();
   shuffleDeck(deck);
   dealerCards = [getNextCard(), getNextCard()];
@@ -43,6 +50,9 @@ newGameButton.addEventListener('click', function() {
   newGameButton.style.display = 'none';
   hitButton.style.display = 'inline';
   stayButton.style.display = 'inline';
+  document.getElementById('dealer-wins-text-area').value = "";
+  document.getElementById('player-wins-text-area').value = "";
+  document.getElementById('righttextarea').value = "";
   showStatus();
 });
 
@@ -90,8 +100,7 @@ function getNextCard() {
   return deck.shift();
 }
 
-//TODO: ace is only worth 1 here, can be worth 11 or 1 in reality
-//instead, adding the remaining 10 (to make 11) is handled in getScore
+// Note: ace is only worth 1 here, adding the remaining 10 (to make 11) is handled in getScore
 function getCardNumericValue(card) {
   switch(card.value){
     case 'Ace':
@@ -202,10 +211,10 @@ function showStatus() {
     
     if (gameOver) {
       if (playerWon) {
-        middleTextArea.innerText += 'YOU WIN!';
+        playerWinsTextArea.innerText += 'YOU WIN!';
       }
       else {
-        leftTextArea.innerText += 'DEALER WINS';
+        dealerWinsTextArea.innerText += 'DEALER WINS';
       }
 
     newGameButton.style.display = 'inline';
@@ -217,6 +226,12 @@ function showStatus() {
   for (var i = 0; i < deck.length; i++) {
   rightTextArea.innerText += '\n' + getCardString(deck[i]);
   }
+}
+
+function clearFields() {
+  document.getElementById('dealer-wins-text-area').value = "";
+  document.getElementById('player-wins-text-area').value = "";
+  document.getElementById('righttextarea').value = "";
 }
 
 

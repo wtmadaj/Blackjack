@@ -4,6 +4,16 @@
 
 body {
   margin: 0;
+  background-color: black;
+}
+p, h3 {
+  color: white;
+}
+#dealer-wins-text-area {
+  color: red;
+}
+#player-wins-text-area {
+  color: green;
 }
 
 /* Style the header */
@@ -75,7 +85,7 @@ body {
 }
 
 .buttonarea {
-  padding-right: 33%;
+  padding-left: 35%;
   float: left;
 }
 #new-game-button {
