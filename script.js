@@ -228,10 +228,11 @@ function showStatus() {
   }
 }
 
+// Function called to clear out the text in these areas when a new game is started
 function clearFields() {
-  document.getElementById('dealer-wins-text-area').value = "";
-  document.getElementById('player-wins-text-area').value = "";
-  document.getElementById('righttextarea').value = "";
+  document.getElementById('dealer-wins-text-area').innerText = "";
+  document.getElementById('player-wins-text-area').innerText = "";
+  document.getElementById('righttextarea').innerText = "";
 }
 
 
