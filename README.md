@@ -1,4 +1,4 @@
-<h1>Blackjack</h1>>
+<h1>Blackjack</h1>
 
 A simple blackjack game written in JavaScript, HTML, and CSS.
 
@@ -13,7 +13,7 @@ A simple blackjack game written in JavaScript, HTML, and CSS.
 <h2>Upcoming Improvements</h2>
 	<ul>
 		<li>UI improvements</li>
-		<li>3 column layout</li>
+		<li>Style improvements for 3 column layout</li>
 	</ul>
 
 
@@ -25,3 +25,9 @@ The beta version feaures various improvements and alterations:
 	</ul>
 
 To play this version, open index2.html in your browser!
+
+
+<h3>Tasks</h3>
+-remove new game button from middle column
+-move button area to separate row beneath left two columns
+-style dealer and player areas to be "felt green"
