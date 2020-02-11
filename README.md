@@ -28,6 +28,8 @@ To play this version, open index2.html in your browser!
 
 
 <h3>Tasks</h3>
--remove new game button from middle column
--move button area to separate row beneath left two columns
--style dealer and player areas to be "felt green"
+	<ol>
+		<li>remove new game button from middle column</li>
+		<li>move button area to separate row beneath left two columns</li>
+		<li>style dealer and player areas to be "felt green"</li>
+	</ol>

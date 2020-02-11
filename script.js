@@ -11,6 +11,8 @@ let values = ['Ace', 'King', 'Queen', 'Jack',
 let leftTextArea = document.getElementById('lefttextarea');
 let middleTextArea = document.getElementById('middletextarea');
 let rightTextArea = document.getElementById('righttextarea');
+let leftHeaderArea = document.getElementById('left-header-area');
+let middleHeaderArea = document.getElementById('middle-header-area');
 let dealerWinsTextArea = document.getElementById('dealer-wins-text-area');
 let playerWinsTextArea = document.getElementById('player-wins-text-area');
 let newGameButton = document.getElementById('new-game-button')
@@ -199,15 +201,14 @@ function showStatus() {
   
   updateScores();
   
-  leftTextArea.innerText = 
-    'Dealer has:\n' +
-    dealerCardString +
-    '(score: ' + dealerScore + ')\n\n';
+// Show Dealer score and cards
+  leftHeaderArea.innerText = 'Dealer\n' + '(score: ' + dealerScore + ')';
+  leftTextArea.innerText = dealerCardString;
     
-  middleTextArea.innerText =
-    'Player has:\n' +
-    playerCardString +
-    '(score: ' + playerScore + ')\n\n';
+// Show Player score and cards
+  middleHeaderArea.innerText = 'Player\n' + '(score: ' + playerScore + ')';
+  middleTextArea.innerText = playerCardString;
+
     
     if (gameOver) {
       if (playerWon) {
