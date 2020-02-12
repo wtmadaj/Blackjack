@@ -1,4 +1,4 @@
-//Blackjack
+//Blackjack 1.0
 // --WTM--
 
 let suits = ['Hearts', 'Clubs', 'Diamonds', 'Spades'];
@@ -214,7 +214,3 @@ function showStatus() {
   // textArea.innerText += '\n' + getCardString(deck[i]);
   // }
 }
-
-
-
-

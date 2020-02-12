@@ -1,0 +1,138 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  background-color: black;
+}
+p, h2, h3 {
+  color: white;
+}
+
+#dealer-wins-text-area {
+  color: red;
+}
+#player-wins-text-area {
+  color: green;
+}
+
+.playing-table-area {
+  /*width: 1000px;*/
+}
+
+/* Style the header */
+.header {
+  background-image: url("https://st4.depositphotos.com/15955262/20421/i/1600/depositphotos_204215548-stock-photo-banner-four-aces-specific-outline.jpg");
+  background-position: center;
+  background-size: cover;
+  background-color: #f1f1f1;
+  padding: 20px;
+  text-align: center;
+}
+
+/* Style the top navigation bar */
+.topnav {
+  overflow: hidden;
+  background-color: #333;
+}
+
+/* Style the topnav links */
+.topnav a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+/* Change color on hover */
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+/* Create three columns*/
+.leftcolumn {
+  width: 40%;
+  padding: 15px;
+}
+.middlecolumn {
+  width: 40%;
+  padding: 15px;
+}
+.rightcolumn {
+  width: 20%;
+  padding: 15px;
+  float: right;
+}
+.leftcolumn, .middlecolumn {
+  float: left;
+  /*background-color: #35654d;*/
+}
+.rightcolumn {
+  float: right;
+}
+
+/* Don't clear floats after the columns -- allows showing shuffled cards on right properly */
+.row:after {
+  content: "";
+  display: table;
+  /*clear: right;*/
+}
+
+/* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
+@media screen and (max-width:600px) {
+  .column {
+    width: 100%;
+  }
+}
+
+/* Buttons */
+.buttonarea {
+  padding-left: 35%;
+  float: left;
+}
+#new-game-button {
+  background-color: #251582;
+  border-radius: 5px;
+  color: white;
+  padding: 20px 40px;
+  font-size: large;
+  margin: 5px;
+
+}
+#new-game-button:hover {
+  background-color: #492fdd;
+  transform: scale(1.1);
+  color: white;
+}
+
+#hit-button {
+  background-color: #44d478;
+  border-radius: 5px;
+  color: white;
+  padding: 20px 40px;
+  font-size: large;
+  transition-duration; 0.3s;
+  margin: 5px;
+}
+#hit-button:hover {
+  background-color: #21f76e;
+  transform: scale(1.1);
+  color: black;
+}
+
+#stay-button {
+  background-color: #d9443f;
+  border-radius: 5px;
+  color: white;
+  padding: 20px 40px;
+  font-size: large;
+  margin: 5px;
+}
+#stay-button:hover {
+  background-color: #fc231c;
+  transform: scale(1.1);
+  color: black;
+}
