@@ -8,14 +8,14 @@ let values = ['Ace', 'King', 'Queen', 'Jack',
 
 //Access areas of html file by id's (DOM variables)
 // let textArea = document.getElementById('text-area');
-let leftTextArea = document.getElementById('left-text-area');
-let middleTextArea = document.getElementById('middle-text-area');
+let dealerTextArea = document.getElementById('dealer-text-area');
+let playerTextArea = document.getElementById('player-text-area');
 let deckTextArea = document.getElementById('deck-text-area');
-let leftHeaderArea = document.getElementById('left-header-area');
-let middleHeaderArea = document.getElementById('middle-header-area');
+let dealerHeaderArea = document.getElementById('dealer-header-area');
+let playerHeaderArea = document.getElementById('player-header-area');
 let dealerWinsTextArea = document.getElementById('dealer-wins-text-area');
 let playerWinsTextArea = document.getElementById('player-wins-text-area');
-let newGameButton = document.getElementById('new-game-button')
+let newGameButton = document.getElementById('new-game-button');
 let hitButton = document.getElementById('hit-button');
 let stayButton = document.getElementById('stay-button');
 
@@ -189,7 +189,7 @@ function checkForEndOfGame() {
 
 function showStatus() {
   if (!gameStarted) {
-    middleTextArea.innerText = 'Welcome to Blackjack!';
+    playerTextArea.innerText = 'Welcome to Blackjack!';
     return;
   }
   
@@ -206,12 +206,12 @@ function showStatus() {
   updateScores();
   
 // Show Dealer score and cards
-  leftHeaderArea.innerText = 'Dealer\n' + '(score: ' + dealerScore + ')';
-  leftTextArea.innerText = dealerCardString;
+  dealerHeaderArea.innerText = 'Dealer\n' + '(score: ' + dealerScore + ')';
+  dealerTextArea.innerText = dealerCardString;
     
 // Show Player score and cards
-  middleHeaderArea.innerText = 'Player\n' + '(score: ' + playerScore + ')';
-  middleTextArea.innerText = playerCardString;
+  playerHeaderArea.innerText = 'Player\n' + '(score: ' + playerScore + ')';
+  playerTextArea.innerText = playerCardString;
 
     
     if (gameOver) {
