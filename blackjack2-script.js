@@ -1,4 +1,4 @@
-//Blackjack
+//Blackjack 2.0
 // --WTM--
 
 let suits = ['Hearts', 'Clubs', 'Diamonds', 'Spades'];
