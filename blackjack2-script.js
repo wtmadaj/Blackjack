@@ -10,7 +10,7 @@ let values = ['Ace', 'King', 'Queen', 'Jack',
 // let textArea = document.getElementById('text-area');
 let leftTextArea = document.getElementById('lefttextarea');
 let middleTextArea = document.getElementById('middletextarea');
-let rightTextArea = document.getElementById('righttextarea');
+let deckTextArea = document.getElementById('deck-text-area');
 let leftHeaderArea = document.getElementById('left-header-area');
 let middleHeaderArea = document.getElementById('middle-header-area');
 let dealerWinsTextArea = document.getElementById('dealer-wins-text-area');
@@ -55,7 +55,7 @@ newGameButton.addEventListener('click', function() {
   stayButton.style.display = 'inline';
   document.getElementById('dealer-wins-text-area').value = "";
   document.getElementById('player-wins-text-area').value = "";
-  document.getElementById('righttextarea').value = "";
+  document.getElementById('deck-text-area').value = "";
   showStatus();
 });
 
@@ -233,7 +233,7 @@ function showStatus() {
     
   //shows the shuffled deck
   for (var i = 0; i < deck.length; i++) {
-  rightTextArea.innerText += '\n' + getCardString(deck[i]);
+  deckTextArea.innerText += '\n' + getCardString(deck[i]);
   }
 }
 
@@ -241,7 +241,7 @@ function showStatus() {
 function clearFields() {
   document.getElementById('dealer-wins-text-area').innerText = "";
   document.getElementById('player-wins-text-area').innerText = "";
-  document.getElementById('righttextarea').innerText = "";
+  document.getElementById('deck-text-area').innerText = "";
 }
 
 
