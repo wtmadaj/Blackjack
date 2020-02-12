@@ -24,7 +24,7 @@ The beta version feaures various improvements and alterations:
 		<li>Style/UI improvements</li>
 	</ul>
 
-To play this version, open index2.html in your browser!
+To play this version, open blackjack2.html in your browser!
 
 
 <h3>Tasks</h3>

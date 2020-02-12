@@ -16,6 +16,10 @@ p, h2, h3 {
   color: green;
 }
 
+.playing-table-area {
+  /*width: 1000px;*/
+}
+
 /* Style the header */
 .header {
   background-image: url("https://st4.depositphotos.com/15955262/20421/i/1600/depositphotos_204215548-stock-photo-banner-four-aces-specific-outline.jpg");
