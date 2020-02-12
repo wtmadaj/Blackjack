@@ -53,24 +53,24 @@ p, h2, h3 {
 }
 
 /* Create three columns*/
-.leftcolumn {
+.dealer-column {
   width: 40%;
   padding: 15px;
 }
-.middlecolumn {
+.player-column {
   width: 40%;
   padding: 15px;
 }
-.rightcolumn {
+.deck-column {
   width: 20%;
   padding: 15px;
   float: right;
 }
-.leftcolumn, .middlecolumn {
+.dealer-column, .player-column {
   float: left;
   /*background-color: #35654d;*/
 }
-.rightcolumn {
+.deck-column {
   float: right;
 }
 

@@ -8,8 +8,8 @@ let values = ['Ace', 'King', 'Queen', 'Jack',
 
 //Access areas of html file by id's (DOM variables)
 // let textArea = document.getElementById('text-area');
-let leftTextArea = document.getElementById('lefttextarea');
-let middleTextArea = document.getElementById('middletextarea');
+let leftTextArea = document.getElementById('left-text-area');
+let middleTextArea = document.getElementById('middle-text-area');
 let deckTextArea = document.getElementById('deck-text-area');
 let leftHeaderArea = document.getElementById('left-header-area');
 let middleHeaderArea = document.getElementById('middle-header-area');
