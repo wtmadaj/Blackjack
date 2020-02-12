@@ -8,14 +8,14 @@ let values = ['Ace', 'King', 'Queen', 'Jack',
 
 //Access areas of html file by id's (DOM variables)
 // let textArea = document.getElementById('text-area');
-let leftTextArea = document.getElementById('lefttextarea');
-let middleTextArea = document.getElementById('middletextarea');
-let rightTextArea = document.getElementById('righttextarea');
-let leftHeaderArea = document.getElementById('left-header-area');
-let middleHeaderArea = document.getElementById('middle-header-area');
+let dealerTextArea = document.getElementById('dealer-text-area');
+let playerTextArea = document.getElementById('player-text-area');
+let deckTextArea = document.getElementById('deck-text-area');
+let dealerHeaderArea = document.getElementById('dealer-header-area');
+let playerHeaderArea = document.getElementById('player-header-area');
 let dealerWinsTextArea = document.getElementById('dealer-wins-text-area');
 let playerWinsTextArea = document.getElementById('player-wins-text-area');
-let newGameButton = document.getElementById('new-game-button')
+let newGameButton = document.getElementById('new-game-button');
 let hitButton = document.getElementById('hit-button');
 let stayButton = document.getElementById('stay-button');
 
@@ -40,6 +40,7 @@ newGameButton.addEventListener('click', function() {
   gameStarted = true;
   gameOver = false;
   playerWon = false;
+  tieGame = false;
   
   // TODO: add another shuffleDeck to display on screen to show cards are shuffled
   // TODO: create version branches
@@ -54,7 +55,7 @@ newGameButton.addEventListener('click', function() {
   stayButton.style.display = 'inline';
   document.getElementById('dealer-wins-text-area').value = "";
   document.getElementById('player-wins-text-area').value = "";
-  document.getElementById('righttextarea').value = "";
+  document.getElementById('deck-text-area').value = "";
   showStatus();
 });
 
@@ -174,6 +175,9 @@ function checkForEndOfGame() {
     if (playerScore > dealerScore) {
       playerWon = true;
     }
+    else if (playerScore == dealerScore) {
+      tieGame = true;
+    }
     else {
       playerWon = false;
     }
@@ -185,7 +189,7 @@ function checkForEndOfGame() {
 
 function showStatus() {
   if (!gameStarted) {
-    middleTextArea.innerText = 'Welcome to Blackjack!';
+    playerTextArea.innerText = 'Welcome to Blackjack!';
     return;
   }
   
@@ -202,17 +206,21 @@ function showStatus() {
   updateScores();
   
 // Show Dealer score and cards
-  leftHeaderArea.innerText = 'Dealer\n' + '(score: ' + dealerScore + ')';
-  leftTextArea.innerText = dealerCardString;
+  dealerHeaderArea.innerText = 'Dealer\n' + '(score: ' + dealerScore + ')';
+  dealerTextArea.innerText = dealerCardString;
     
 // Show Player score and cards
-  middleHeaderArea.innerText = 'Player\n' + '(score: ' + playerScore + ')';
-  middleTextArea.innerText = playerCardString;
+  playerHeaderArea.innerText = 'Player\n' + '(score: ' + playerScore + ')';
+  playerTextArea.innerText = playerCardString;
 
     
     if (gameOver) {
       if (playerWon) {
         playerWinsTextArea.innerText += 'YOU WIN!';
+      }
+      else if (tieGame) {
+        playerWinsTextArea.innerText += 'DRAW!';
+        dealerWinsTextArea.innerText += 'DRAW!';
       }
       else {
         dealerWinsTextArea.innerText += 'DEALER WINS';
@@ -225,7 +233,7 @@ function showStatus() {
     
   //shows the shuffled deck
   for (var i = 0; i < deck.length; i++) {
-  rightTextArea.innerText += '\n' + getCardString(deck[i]);
+  deckTextArea.innerText += '\n' + getCardString(deck[i]);
   }
 }
 
@@ -233,7 +241,7 @@ function showStatus() {
 function clearFields() {
   document.getElementById('dealer-wins-text-area').innerText = "";
   document.getElementById('player-wins-text-area').innerText = "";
-  document.getElementById('righttextarea').innerText = "";
+  document.getElementById('deck-text-area').innerText = "";
 }
 
 
