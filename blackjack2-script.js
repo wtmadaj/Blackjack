@@ -40,6 +40,7 @@ newGameButton.addEventListener('click', function() {
   gameStarted = true;
   gameOver = false;
   playerWon = false;
+  tieGame = false;
   
   // TODO: add another shuffleDeck to display on screen to show cards are shuffled
   // TODO: create version branches
@@ -174,6 +175,9 @@ function checkForEndOfGame() {
     if (playerScore > dealerScore) {
       playerWon = true;
     }
+    else if (playerScore == dealerScore) {
+      tieGame = true;
+    }
     else {
       playerWon = false;
     }
@@ -213,6 +217,10 @@ function showStatus() {
     if (gameOver) {
       if (playerWon) {
         playerWinsTextArea.innerText += 'YOU WIN!';
+      }
+      else if (tieGame) {
+        playerWinsTextArea.innerText += 'DRAW!';
+        dealerWinsTextArea.innerText += 'DRAW!';
       }
       else {
         dealerWinsTextArea.innerText += 'DEALER WINS';
