@@ -140,3 +140,39 @@ p, h2, h3 {
   color: black;
 }
 
+/* Begin card styling area */
+.card {
+  padding: 10px;
+  border: solid 1px #808080;
+  background-color: white;
+  display: inline-block;
+  border-radius: 10px;
+  font-size: 14pt;
+  text-align: left;
+  color:black;
+  margin: 3px;
+}
+
+.card .value {
+  font-size:30pt;
+  font-family: serif;
+}
+
+.card .suit {
+  background-image: url('images/card.png');
+  height: 100px;
+  width: 90px;
+}
+
+.card .diamonds {
+  background-position-y: 100px;
+}
+
+.card .hearts {
+  background-position-x: 90px;
+}
+
+.card .clubs {
+  background-position-x:90px;
+  background-position-y:100px;
+}

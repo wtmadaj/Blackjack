@@ -243,3 +243,24 @@ function clearFields() {
   document.getElementById('player-wins-text-area').innerText = "";
   document.getElementById('deck-text-area').innerText = "";
 }
+
+// Function to render the dealer and player cards
+function renderDeck()
+{
+  document.getElementById('deck').innerHTML = '';
+  for(var i = 0; i < deck.length; i++)
+  {
+    var card = document.createElement("div");
+    var value = document.createElement("div");
+    var suit = document.createElement("div");
+    card.className = "card";
+    value.className = "value";
+    suit.className = "suit " + deck[i].Suit;
+
+    value.innerHTML = deck[i].Value;
+    card.appendChild(value);
+    card.appendChild(suit);
+
+    document.getElementById("deck").appendChild(card);
+  }
+}
