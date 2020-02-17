@@ -150,35 +150,44 @@ function updateScores() {
   playerScore = getScore(playerCards);
 }
 
-function checkForEndOfGame() {
+function checkForEndOfGame() 
+{
   updateScores();
   
-  if (gameOver) {
+  if (gameOver) 
+  {
     //let dealer take cards
     while (dealerScore < playerScore
             && dealerScore <= 21
-            && playerScore <= 21) {
+            && playerScore <= 21) 
+            {
               dealerCards.push(getNextCard());
               updateScores();
             }
   }
   
-  if (playerScore > 21) {
+  if (playerScore > 21) 
+  {
     playerWon = false;
     gameOver = true;
   }
-  else if (dealerScore > 21) {
+  else if (dealerScore > 21) 
+  {
     playerWon = true;
     gameOver = true;
   }
-  else if (gameOver) {
-    if (playerScore > dealerScore) {
+  else if (gameOver) 
+  {
+    if (playerScore > dealerScore) 
+    {
       playerWon = true;
     }
-    else if (playerScore == dealerScore) {
+    else if (playerScore == dealerScore) 
+    {
       tieGame = true;
     }
-    else {
+    else 
+    {
       playerWon = false;
     }
     
@@ -187,19 +196,23 @@ function checkForEndOfGame() {
   }
 }
 
-function showStatus() {
-  if (!gameStarted) {
+function showStatus() 
+{
+  if (!gameStarted) 
+  {
     playerTextArea.innerText = 'Welcome to Blackjack!';
     return;
   }
   
   let dealerCardString = '';
-  for (let i =0; i < dealerCards.length; i++) {
+  for (let i =0; i < dealerCards.length; i++) 
+  {
     dealerCardString += getCardString(dealerCards[i]) + '\n';
   }
   
   let playerCardString = '';
-  for (let i = 0; i < playerCards.length; i++) {
+  for (let i = 0; i < playerCards.length; i++) 
+  {
     playerCardString += getCardString(playerCards[i]) + '\n';
   }
   
@@ -214,26 +227,31 @@ function showStatus() {
   playerTextArea.innerText = playerCardString;
 
     
-    if (gameOver) {
-      if (playerWon) {
+    if (gameOver) 
+    {
+      if (playerWon) 
+      {
         playerWinsTextArea.innerText += 'YOU WIN!';
       }
-      else if (tieGame) {
+      else if (tieGame) 
+      {
         playerWinsTextArea.innerText += 'DRAW!';
         dealerWinsTextArea.innerText += 'DRAW!';
       }
-      else {
+      else 
+      {
         dealerWinsTextArea.innerText += 'DEALER WINS';
       }
 
-    newGameButton.style.display = 'inline';
-    hitButton.style.display = 'none';
-    stayButton.style.display = 'none';
+      newGameButton.style.display = 'inline';
+      hitButton.style.display = 'none';
+      stayButton.style.display = 'none';
     }
     
   //shows the shuffled deck
-  for (var i = 0; i < deck.length; i++) {
-  deckTextArea.innerText += '\n' + getCardString(deck[i]);
+  for (var i = 0; i < deck.length; i++) 
+  {
+    deckTextArea.innerText += '\n' + getCardString(deck[i]);
   }
 }
 
