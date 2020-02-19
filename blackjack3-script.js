@@ -214,6 +214,7 @@ function showStatus()
   for (let i = 0; i < playerCards.length; i++) 
   {
     playerCardString += getCardString(playerCards[i]) + '\n';
+    // render card here??
   }
   
   updateScores();
@@ -282,3 +283,5 @@ function renderDeck()
     document.getElementById("deck").appendChild(card);
   }
 }
+
+
