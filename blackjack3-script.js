@@ -216,10 +216,10 @@ function showStatus()
     playerCardString += getCardString(playerCards[i]) + '\n';
   }
 
-  // Not quite there, but it's now displaying a card on "Hit"
+  // Not quite there, but it's now displaying a card on "Hit", albeit the wrong one
   let playerHandUI = '';
   for (let i = 0; i < playerCards.lenth; i++) {
-    playerHandUI += renderCard(playerCards[i]);
+    playerHandUI += getcardString(playerCards[i]).renderCard(card);
   }
   
   updateScores();
@@ -301,11 +301,11 @@ function getCardUI(card)
 {
     var el = document.createElement('div');
     var icon = '';
-    if (card.Suit == 'Hearts')
+    if (card.suit == 'Hearts')
     icon='&hearts;';
-    else if (card.Suit == 'Spades')
+    else if (card.suit == 'Spades')
     icon = '&spades;';
-    else if (card.Suit == 'Diamonds')
+    else if (card.suit == 'Diamonds')
     icon = '&diams;';
     else
     icon = '&clubs;';
