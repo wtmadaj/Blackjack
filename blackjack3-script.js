@@ -1,13 +1,9 @@
-//Blackjack 2.0
+//Blackjack 3.0
 // --WTM--
 
 let suits = ['Hearts', 'Clubs', 'Diamonds', 'Spades'];
-let values = ['Ace', 'King', 'Queen', 'Jack',
-      'Ten', 'Nine', 'Eight', 'Seven', 'Six',
-      'Five', 'Four', 'Three', 'Two'];
+let values = ['Ace', 'King', 'Queen', 'Jack','Ten', 'Nine', 'Eight', 'Seven', 'Six','Five', 'Four', 'Three', 'Two'];
 
-//Access areas of html file by id's (DOM variables)
-// let textArea = document.getElementById('text-area');
 let dealerTextArea = document.getElementById('dealer-text-area');
 let playerTextArea = document.getElementById('player-text-area');
 let deckTextArea = document.getElementById('deck-text-area');
@@ -15,6 +11,8 @@ let dealerHeaderArea = document.getElementById('dealer-header-area');
 let playerHeaderArea = document.getElementById('player-header-area');
 let dealerWinsTextArea = document.getElementById('dealer-wins-text-area');
 let playerWinsTextArea = document.getElementById('player-wins-text-area');
+let dealerHandUI = document.getElementById('dealer-hand-ui');
+let playerHandUI = document.getElementById('player-hand-ui');
 let newGameButton = document.getElementById('new-game-button');
 let hitButton = document.getElementById('hit-button');
 let stayButton = document.getElementById('stay-button');
@@ -43,8 +41,6 @@ newGameButton.addEventListener('click', function() {
   tieGame = false;
   
   // TODO: add another shuffleDeck to display on screen to show cards are shuffled
-  // TODO: create version branches
-  // TODO: black bg with felt colored divs for player/dealer/card areas
   deck = createDeck();
   shuffleDeck(deck);
   dealerCards = [getNextCard(), getNextCard()];
@@ -56,6 +52,7 @@ newGameButton.addEventListener('click', function() {
   document.getElementById('dealer-wins-text-area').value = "";
   document.getElementById('player-wins-text-area').value = "";
   document.getElementById('deck-text-area').value = "";
+  document.getElementById('player-hand-ui').value = "";
   showStatus();
 });
 
@@ -63,6 +60,9 @@ hitButton.addEventListener('click', function() {
   playerCards.push(getNextCard());
   checkForEndOfGame();
   showStatus();
+
+  var card = deck.pop();
+  renderCard(card);
 });
 
 stayButton.addEventListener('click', function() {
@@ -214,17 +214,22 @@ function showStatus()
   for (let i = 0; i < playerCards.length; i++) 
   {
     playerCardString += getCardString(playerCards[i]) + '\n';
-    // render card here??
+  }
+
+  // Not quite there, but it's now displaying a card on "Hit"
+  let playerHandUI = '';
+  for (let i = 0; i < playerCards.lenth; i++) {
+    playerHandUI += renderCard(playerCards[i]);
   }
   
   updateScores();
   
 // Show Dealer score and cards
-  dealerHeaderArea.innerText = 'Dealer\n' + '(score: ' + dealerScore + ')';
+  dealerHeaderArea.innerText = 'Dealer\n' + dealerScore;
   dealerTextArea.innerText = dealerCardString;
     
 // Show Player score and cards
-  playerHeaderArea.innerText = 'Player\n' + '(score: ' + playerScore + ')';
+  playerHeaderArea.innerText = 'Player\n' + playerScore;
   playerTextArea.innerText = playerCardString;
 
     
@@ -261,6 +266,7 @@ function clearFields() {
   document.getElementById('dealer-wins-text-area').innerText = "";
   document.getElementById('player-wins-text-area').innerText = "";
   document.getElementById('deck-text-area').innerText = "";
+  document.getElementById('player-hand-ui').innerText = "";
 }
 
 // Function to render the dealer and player cards
@@ -284,4 +290,33 @@ function renderDeck()
   }
 }
 
+// Development area for UI
+function renderCard(card)
+{
+    var hand = document.getElementById('player-hand-ui');
+    hand.appendChild(getCardUI(card));
+
+}
+function getCardUI(card)
+{
+    var el = document.createElement('div');
+    var icon = '';
+    if (card.Suit == 'Hearts')
+    icon='&hearts;';
+    else if (card.Suit == 'Spades')
+    icon = '&spades;';
+    else if (card.Suit == 'Diamonds')
+    icon = '&diams;';
+    else
+    icon = '&clubs;';
+    
+    el.className = 'card';
+    el.innerHTML = getCardNumericValue(card) + '<br/>' + icon;
+
+    // Added some color for red cards
+    if (card.Suit == "Hearts" || card.Suit == "Diamonds") {
+        el.style.color = "red";
+    } else el.style.color = "black";
+    return el;
+}
 

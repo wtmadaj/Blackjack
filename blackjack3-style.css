@@ -3,12 +3,11 @@
 }
 body {
   margin: 0;
-  background-color: black;
+  /*background-color: black;*/
 }
 p, h2, h3 {
-  color: white;
+  /*color: white;*/
 }
-
 #dealer-wins-text-area {
   color: red;
 }
