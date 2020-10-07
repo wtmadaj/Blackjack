@@ -314,7 +314,7 @@ function getCardUI(card)
     el.innerHTML = getCardNumericValue(card) + '<br/>' + icon;
 
     // Added some color for red cards
-    if (card.Suit == "Hearts" || card.Suit == "Diamonds") {
+    if (card.suit == "Hearts" || card.suit == "Diamonds") {
         el.style.color = "red";
     } else el.style.color = "black";
     return el;
