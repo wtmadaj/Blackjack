@@ -2,7 +2,7 @@
 // --WTM--
 
 let suits = ['Hearts', 'Clubs', 'Diamonds', 'Spades'];
-let values = ['Ace', 'King', 'Queen', 'Jack','Ten', 'Nine', 'Eight', 'Seven', 'Six','Five', 'Four', 'Three', 'Two'];
+let values = ['A', 'K', 'Q', 'J', '10', '9', '8', '7', '6','5', '4', '3', '2']
 
 let dealerTextArea = document.getElementById('dealer-text-area');
 let playerTextArea = document.getElementById('player-text-area');
@@ -30,7 +30,9 @@ let gameStarted = false,
 hitButton.style.display = 'none';
 stayButton.style.display = 'none';
 dealerWinsTextArea.value = "";
+dealerWinsTextArea.style.display = 'none';
 playerWinsTextArea.value = "";
+playerWinsTextArea.style.display = 'none';
 showStatus();
 
 //On pressing new game button: display some text, hide new game button, show hit and stay buttons in-line
@@ -45,14 +47,23 @@ newGameButton.addEventListener('click', function() {
   shuffleDeck(deck);
   dealerCards = [getNextCard(), getNextCard()];
   playerCards = [getNextCard(), getNextCard()];
+
+  let playerHandUI = '';
+  for (let i = 0; i < playerCards.length; i++) 
+  {
+    renderCard(playerCards[i]);
+  }
   
   newGameButton.style.display = 'none';
   hitButton.style.display = 'inline';
   stayButton.style.display = 'inline';
+  dealerWinsTextArea.style.display = 'none';
+  playerWinsTextArea.style.display = 'none';
   document.getElementById('dealer-wins-text-area').value = "";
   document.getElementById('player-wins-text-area').value = "";
   document.getElementById('deck-text-area').value = "";
   document.getElementById('player-hand-ui').value = "";
+  document.getElementById('dealer-hand-ui').value = "";
   showStatus();
 });
 
@@ -62,7 +73,8 @@ hitButton.addEventListener('click', function() {
   showStatus();
 
   var card = deck.pop();
-  renderCard(card);
+  let i = playerCards.length - 1;
+  renderCard(playerCards[i]);
 });
 
 stayButton.addEventListener('click', function() {
@@ -106,23 +118,23 @@ function getNextCard() {
 // Note: ace is only worth 1 here, adding the remaining 10 (to make 11) is handled in getScore
 function getCardNumericValue(card) {
   switch(card.value){
-    case 'Ace':
+    case 'A':
       return 1;
-    case 'Two':
+    case '2':
       return 2;
-    case 'Three':
+    case '3':
       return 3;
-    case 'Four':
+    case '4':
       return 4;
-    case 'Five':
+    case '5':
       return 5;
-    case 'Six':
+    case '6':
       return 6;
-    case 'Seven':
+    case '7':
       return 7;
-    case 'Eight':
+    case '8':
       return 8;
-    case 'Nine':
+    case '9':
       return 9;
     default:
       return 10;
@@ -215,12 +227,6 @@ function showStatus()
   {
     playerCardString += getCardString(playerCards[i]) + '\n';
   }
-
-  // Not quite there, but it's now displaying a card on "Hit", albeit the wrong one
-  let playerHandUI = '';
-  for (let i = 0; i < playerCards.lenth; i++) {
-    playerHandUI += getcardString(playerCards[i]).renderCard(card);
-  }
   
   updateScores();
   
@@ -237,6 +243,7 @@ function showStatus()
     {
       if (playerWon) 
       {
+        playerWinsTextArea.style.display = 'revert';
         playerWinsTextArea.innerText += 'YOU WIN!';
       }
       else if (tieGame) 
@@ -246,6 +253,7 @@ function showStatus()
       }
       else 
       {
+        dealerWinsTextArea.style.display = 'revert';
         dealerWinsTextArea.innerText += 'DEALER WINS';
       }
 
@@ -267,6 +275,7 @@ function clearFields() {
   document.getElementById('player-wins-text-area').innerText = "";
   document.getElementById('deck-text-area').innerText = "";
   document.getElementById('player-hand-ui').innerText = "";
+  document.getElementById('dealer-hand-ui').innerText = "";
 }
 
 // Function to render the dealer and player cards
@@ -311,11 +320,12 @@ function getCardUI(card)
     icon = '&clubs;';
     
     el.className = 'card';
-    el.innerHTML = getCardNumericValue(card) + '<br/>' + icon;
+    el.innerHTML = card.value + '<br/>' + icon;
 
     // Added some color for red cards
     if (card.suit == "Hearts" || card.suit == "Diamonds") {
         el.style.color = "red";
+        el.style.border = "solid 2px red";
     } else el.style.color = "black";
     return el;
 }
