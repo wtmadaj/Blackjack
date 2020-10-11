@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <link rel="stylesheet" href="blackjack2-style.css">
-    <title>Blackjack 2.0</title>
+    <link rel="stylesheet" href="blackjack3-style.css">
+    <title>Blackjack 3.0</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
@@ -11,7 +11,11 @@
 
     <div class="header">
       <h1>Blackjack</h1>
-      <p>Play against the house!</p>
+      <p class="header-icon-black">&spades;</p>
+      <p class="header-icon-red">&diams;</p>
+      <p class="header-icon-black">&clubs;</p>
+      <p class="header-icon-red">&hearts;</p>
+      <p id="header-subtext">Can you beat the house?</p>
     </div>
 
     <div class="topnav">
@@ -25,14 +29,15 @@
         <div class="dealer-column">
             <h2 id="dealer-header-area">Dealer</h2>
             <p id="dealer-text-area">Show dealer hand here</p>
+            <p id="dealer-hand-ui"></p>
             <h3 id="dealer-wins-text-area" type="text"></h3>
         </div>
       
         <div class="player-column">
             <h2 id="player-header-area">Player</h2>
             <p id="player-text-area">Welcome to Blackjack!</p>
+            <p id="player-hand-ui"></p>
             <h3 id="player-wins-text-area" type="text"></h3>
-            <!-- <button id="new-game-button" onclick="clearFields()">New Game!</button> -->
         </div>
       </div> <!-- end playing table area -->
     </div> <!-- end row -->
@@ -49,7 +54,12 @@
       <button id="hit-button">Hit!</button>
       <button id="stay-button">Stay</button>
     </div>
-    <script src="blackjack2-script.js"></script>
+
+    <!-- <div class="game-text-area">
+      <h3 id="game-text" type="text"></h3>
+    </div> -->
+
+    <script src="blackjack3-script.js"></script>
   </body>
 </html>
 

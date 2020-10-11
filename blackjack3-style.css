@@ -3,17 +3,25 @@
 }
 body {
   margin: 0;
-  background-color: black;
+  background-color: #10684d;
 }
-p, h2, h3 {
-  color: white;
-}
-
 #dealer-wins-text-area {
   color: red;
+  background: white;
+  border: solid 3px #e6db0b;
+  font-size: 18pt;
+  width: fit-content;
+  border-radius: 5px;
+  padding: 5px;
 }
 #player-wins-text-area {
   color: green;
+  background: white;
+  border: solid 3px #e6db0b;
+  font-size: 18pt;
+  width: fit-content;
+  border-radius: 5px;
+  padding: 5px;
 }
 
 .playing-table-area {
@@ -22,15 +30,26 @@ p, h2, h3 {
 
 /* Style the header */
 .header {
-  background-image: url("https://st4.depositphotos.com/15955262/20421/i/1600/depositphotos_204215548-stock-photo-banner-four-aces-specific-outline.jpg");
-  /*background-image: url("images/PokerTableBG.jpg");*/
-  /*background-image: url("images/CardsChipsBanner.jpg");*/
-  background-position: center;
-  background-size: cover;
-  background-color: #f1f1f1;
+  /*background-color: #0a0000;*/
+  background-color: #013325;
   padding: 20px;
   text-align: center;
-  color: white;
+  color: #f2f2f2;
+  letter-spacing: 10px;
+  font-variant: all-small-caps;
+  font-size: 20px;
+}
+p.header-icon-red, p.header-icon-black {
+    display: inline;
+    padding: 0 10px;
+    font-size: 30pt;
+}
+p.header-icon-red {
+    color: red;
+}
+#header-subtext {
+  letter-spacing: 7px;
+  font-weight: bold;
 }
 
 /* Style the top navigation bar */
@@ -59,6 +78,7 @@ p, h2, h3 {
 .dealer-column {
   width: 40%;
   padding: 15px;
+  margin-left: 10px;
 }
 .player-column {
   width: 40%;
@@ -71,17 +91,17 @@ p, h2, h3 {
 }
 .dealer-column, .player-column {
   float: left;
-  /*background-color: #35654d;*/
 }
 .deck-column {
   float: right;
+  display: none;
 }
 
 /* Don't clear floats after the columns -- allows showing shuffled cards on right properly */
 .row:after {
   content: "";
   display: table;
-  /*clear: right;*/
+  clear: right;
 }
 
 /* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
@@ -90,11 +110,28 @@ p, h2, h3 {
     width: 100%;
   }
 }
-
+#dealer-header-area {
+  color: white;
+  margin: 5px;
+  padding: 5px;
+}
+p#dealer-text-area {
+    display: none;
+}
+#player-header-area {
+  color: white;
+  margin: 5px;
+  padding: 5px;
+}
+p#player-text-area {
+    display: none;
+}
 /* Buttons */
 .buttonarea {
-  padding-left: 35%;
+  padding-left: 25%;
   float: left;
+  position: absolute;
+  bottom: 50px;
 }
 #new-game-button {
   background-color: #251582;
@@ -112,7 +149,7 @@ p, h2, h3 {
 }
 
 #hit-button {
-  background-color: #44d478;
+  background-color: #492fdd;
   border-radius: 5px;
   color: white;
   padding: 20px 40px;
@@ -121,9 +158,9 @@ p, h2, h3 {
   margin: 5px;
 }
 #hit-button:hover {
-  background-color: #21f76e;
+  background-color: #2f8ddd;
   transform: scale(1.1);
-  color: black;
+  color: white;
 }
 
 #stay-button {
@@ -137,6 +174,25 @@ p, h2, h3 {
 #stay-button:hover {
   background-color: #fc231c;
   transform: scale(1.1);
-  color: black;
+  color: white;
+}
+.game-text-area {
+  position: absolute;
+  bottom: 10px;
+  left: 40%;
 }
 
+/* Begin card styling area */
+.card {
+  padding: 10px;
+  border: solid 2px black;
+  background-color: white;
+  display: inline-block;
+  border-radius: 10px;
+  font-size: 16pt;
+  text-align: left;
+  color:black;
+  margin: 3px;
+  width: 50px;
+  height: 80px;
+}
