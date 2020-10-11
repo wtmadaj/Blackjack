@@ -48,6 +48,14 @@ newGameButton.addEventListener('click', function() {
   dealerCards = [getNextCard(), getNextCard()];
   playerCards = [getNextCard(), getNextCard()];
 
+  let dealerHandUI = '';
+  for (let i = 0; i < dealerCards.length; i++)
+  {
+    var hand = document.getElementById('dealer-hand-ui');
+
+    hand.appendChild(getCardUI(dealerCards[i]));
+  }
+
   let playerHandUI = '';
   for (let i = 0; i < playerCards.length; i++) 
   {
@@ -174,6 +182,9 @@ function checkForEndOfGame()
             && playerScore <= 21) 
             {
               dealerCards.push(getNextCard());
+              var hand = document.getElementById('dealer-hand-ui');
+              hand.appendChild(getCardUI(dealerCards[dealerCards.length-1]));
+
               updateScores();
             }
   }
@@ -248,6 +259,8 @@ function showStatus()
       }
       else if (tieGame) 
       {
+        playerWinsTextArea.style.display = 'revert';
+        dealerWinsTextArea.style.display = 'revert';
         playerWinsTextArea.innerText += 'DRAW!';
         dealerWinsTextArea.innerText += 'DRAW!';
       }

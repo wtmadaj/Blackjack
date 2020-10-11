@@ -3,7 +3,7 @@
 }
 body {
   margin: 0;
-  background-color: #007109e8;
+  background-color: #32ab5e;
 }
 p, h2, h3 {
   /*color: white;*/
@@ -120,7 +120,7 @@ p, h2, h3 {
 }
 
 #hit-button {
-  background-color: #44d478;
+  background-color: #492fdd;
   border-radius: 5px;
   color: white;
   padding: 20px 40px;
@@ -129,9 +129,9 @@ p, h2, h3 {
   margin: 5px;
 }
 #hit-button:hover {
-  background-color: #21f76e;
+  background-color: #2f8ddd;
   transform: scale(1.1);
-  color: black;
+  color: white;
 }
 
 #stay-button {
@@ -145,7 +145,7 @@ p, h2, h3 {
 #stay-button:hover {
   background-color: #fc231c;
   transform: scale(1.1);
-  color: black;
+  color: white;
 }
 .game-text-area {
   position: absolute;
