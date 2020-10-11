@@ -94,7 +94,6 @@ p.header-icon-red {
 }
 .dealer-column, .player-column {
   float: left;
-  /*background-color: #35654d;*/
 }
 .deck-column {
   float: right;
@@ -105,7 +104,7 @@ p.header-icon-red {
 .row:after {
   content: "";
   display: table;
-  /*clear: right;*/
+  clear: right;
 }
 
 /* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
@@ -185,27 +184,3 @@ p.header-icon-red {
   width: 50px;
   height: 80px;
 }
-
-/*.card .value {
-  font-size:30pt;
-  font-family: serif;
-}
-
-.card .suit {
-  background-image: url('images/card.png');
-  height: 100px;
-  width: 90px;
-}
-
-.card .diamonds {
-  background-position-y: 100px;
-}
-
-.card .hearts {
-  background-position-x: 90px;
-}
-
-.card .clubs {
-  background-position-x:90px;
-  background-position-y:100px;
-}*/
