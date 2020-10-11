@@ -3,11 +3,7 @@
 }
 body {
   margin: 0;
-  /*background-color: #32ab5e;*/
   background-color: #10684d;
-}
-p, h2, h3 {
-  /*color: white;*/
 }
 #dealer-wins-text-area {
   color: red;
@@ -82,6 +78,7 @@ p.header-icon-red {
 .dealer-column {
   width: 40%;
   padding: 15px;
+  margin-left: 10px;
 }
 .player-column {
   width: 40%;
@@ -113,7 +110,22 @@ p.header-icon-red {
     width: 100%;
   }
 }
-
+#dealer-header-area {
+  color: white;
+  margin: 5px;
+  padding: 5px;
+}
+p#dealer-text-area {
+    display: none;
+}
+#player-header-area {
+  color: white;
+  margin: 5px;
+  padding: 5px;
+}
+p#player-text-area {
+    display: none;
+}
 /* Buttons */
 .buttonarea {
   padding-left: 25%;

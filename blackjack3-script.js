@@ -26,7 +26,7 @@ let gameStarted = false,
     playerScore = 0,
     deck = [];
 
-//Hide the hit and stay buttons by default, and hide text in win text area
+//Hide the hit and stay buttons by default, and hide text in winning text area
 hitButton.style.display = 'none';
 stayButton.style.display = 'none';
 dealerWinsTextArea.value = "";
@@ -42,7 +42,6 @@ newGameButton.addEventListener('click', function() {
   playerWon = false;
   tieGame = false;
   
-  // TODO: add another shuffleDeck to display on screen to show cards are shuffled
   deck = createDeck();
   shuffleDeck(deck);
   dealerCards = [getNextCard(), getNextCard()];
@@ -176,7 +175,7 @@ function checkForEndOfGame()
   
   if (gameOver) 
   {
-    //let dealer take cards
+    //let the dealer take cards, render those cards
     while (dealerScore < playerScore
             && dealerScore <= 21
             && playerScore <= 21) 
