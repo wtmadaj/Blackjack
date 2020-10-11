@@ -6,7 +6,7 @@ let values = ['A', 'K', 'Q', 'J', '10', '9', '8', '7', '6','5', '4', '3', '2']
 
 let dealerTextArea = document.getElementById('dealer-text-area');
 let playerTextArea = document.getElementById('player-text-area');
-let deckTextArea = document.getElementById('deck-text-area');
+// let deckTextArea = document.getElementById('deck-text-area');
 let dealerHeaderArea = document.getElementById('dealer-header-area');
 let playerHeaderArea = document.getElementById('player-header-area');
 let dealerWinsTextArea = document.getElementById('dealer-wins-text-area');
@@ -69,9 +69,9 @@ newGameButton.addEventListener('click', function() {
   playerWinsTextArea.style.display = 'none';
   document.getElementById('dealer-wins-text-area').value = "";
   document.getElementById('player-wins-text-area').value = "";
-  document.getElementById('deck-text-area').value = "";
   document.getElementById('player-hand-ui').value = "";
   document.getElementById('dealer-hand-ui').value = "";
+  //document.getElementById('deck-text-area').value = "";
   showStatus();
 });
 
@@ -276,41 +276,41 @@ function showStatus()
     }
     
   //shows the shuffled deck
-  for (var i = 0; i < deck.length; i++) 
-  {
-    deckTextArea.innerText += '\n' + getCardString(deck[i]);
-  }
+  // for (var i = 0; i < deck.length; i++) 
+  // {
+  //   deckTextArea.innerText += '\n' + getCardString(deck[i]);
+  // }
 }
 
 // Function called to clear out the text in these areas when a new game is started
 function clearFields() {
   document.getElementById('dealer-wins-text-area').innerText = "";
   document.getElementById('player-wins-text-area').innerText = "";
-  document.getElementById('deck-text-area').innerText = "";
   document.getElementById('player-hand-ui').innerText = "";
   document.getElementById('dealer-hand-ui').innerText = "";
+  //document.getElementById('deck-text-area').innerText = "";
 }
 
 // Function to render the dealer and player cards
-function renderDeck()
-{
-  document.getElementById('deck').innerHTML = '';
-  for(var i = 0; i < deck.length; i++)
-  {
-    var card = document.createElement("div");
-    var value = document.createElement("div");
-    var suit = document.createElement("div");
-    card.className = "card";
-    value.className = "value";
-    suit.className = "suit " + deck[i].Suit;
+// function renderDeck()
+// {
+//   document.getElementById('deck').innerHTML = '';
+//   for(var i = 0; i < deck.length; i++)
+//   {
+//     var card = document.createElement("div");
+//     var value = document.createElement("div");
+//     var suit = document.createElement("div");
+//     card.className = "card";
+//     value.className = "value";
+//     suit.className = "suit " + deck[i].Suit;
 
-    value.innerHTML = deck[i].Value;
-    card.appendChild(value);
-    card.appendChild(suit);
+//     value.innerHTML = deck[i].Value;
+//     card.appendChild(value);
+//     card.appendChild(suit);
 
-    document.getElementById("deck").appendChild(card);
-  }
-}
+//     document.getElementById("deck").appendChild(card);
+//   }
+// }
 
 // Development area for UI
 function renderCard(card)
